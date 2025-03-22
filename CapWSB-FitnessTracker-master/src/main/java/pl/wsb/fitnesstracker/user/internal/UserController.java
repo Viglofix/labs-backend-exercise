@@ -16,10 +16,11 @@ class UserController {
 
     @GetMapping("all")
     public List<UserDto> getAllUsers() {
-        return userService.findAllUsers()
+        var users = userService.findAllUsers()
                 .stream()
                 .map(userMapper::toDto)
                 .toList();
+        return  users;
     }
 
     @PostMapping
